@@ -28,10 +28,11 @@ n=int(input("enter the serial number of the css file to save ,or \n press 0 to s
 if n==0 :
 	while i<m :
 		s=str(i+1)
-		r=requests.get(url +'/'+choice[i])
+		fl = open("css_file"+ s +".txt",'w+')
+		r=requests.get("http://" +url +'/'+choice[i])
 		code=r.text
 		content=BeautifulSoup(code)
-		fl = open("css_file"+ s +".txt",'w+')
+		
 		fl.write(str(content))
 		i=i+1
 		fl.close()
