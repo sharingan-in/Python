@@ -29,7 +29,7 @@ if n==0 :
 	while i<=m :
 		s=str(i+1)
 		fl = open("css_file"+ s +".txt",'w+')
-<<<<<<< HEAD
+
 		temp = str(choice[i])
 		if temp[:7]=='http://' or temp[:8]=='https://' :
 			r=requests.get(choice[i])
@@ -37,12 +37,10 @@ if n==0 :
 			r=requests.get("http://" + url +'/' +choice[i])
 		code=r.text
 		content=BeautifulSoup(code)
-=======
+
 		r=requests.get("http://" +url +'/'+choice[i])
 		code=r.text
 		content=BeautifulSoup(code)
-		
->>>>>>> 5beba73da55ed9b830d6e60349849522e25032ec
 		fl.write(str(content))
 		i=i+1
 		fl.close()
