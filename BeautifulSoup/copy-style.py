@@ -26,19 +26,27 @@ m = i
 i=0
 n=int(input("enter the serial number of the css file to save ,or \n press 0 to save all files \n : "))
 if n==0 :
-	while i<m :
+	while i<=m :
 		s=str(i+1)
-		r=requests.get(url +'/'+choice[i])
+		fl = open("css_file"+ s +".txt",'w+')
+		temp = str(choice[i])
+		if temp[:7]=='http://' or temp[:8]=='https://' :
+			r=requests.get(choice[i])
+		else :
+			r=requests.get("http://" + url +'/' +choice[i])
 		code=r.text
 		content=BeautifulSoup(code)
-		fl = open("css_file"+ s +".txt",'w+')
 		fl.write(str(content))
 		i=i+1
 		fl.close()
 else :
 	s=str(n)
+	temp = str(choice[n-1])
 	fl= open("css_file"+ s + ".txt",'w+')
-	r=requests.get("http://" + url +'/' +choice[n-1])
+	if temp[:7]=='http://' or temp[:8]=='https://' :
+			r=requests.get(choice[n-1])
+	else :
+		r=requests.get("http://" + url +'/' +choice[n-1])
 	code=r.text
 	content=BeautifulSoup(code)
 	fl.write(str(content))
