@@ -1,3 +1,4 @@
+#this code only works for the images stored on the same server as of the web page
 from bs4 import BeautifulSoup
 import requests
 url = input("Enter the url :  ")
