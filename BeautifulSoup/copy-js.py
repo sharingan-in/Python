@@ -27,7 +27,7 @@ n=int(input("enter the serial number of the js file to save ,or \n press 0 to sa
 if n==0 :
 	while i<=m :
 		s=str(i+1)
-		fl = open("js_file"+ s +".txt",'w+')
+		fl = open("js_file"+ s +".js",'w+')
 		temp = str(choice[i])
 		if temp[:7]=='http://' or temp[:8]=='https://' :
 			r=requests.get(choice[i])
@@ -41,7 +41,7 @@ if n==0 :
 else :
 	s=str(n)
 	temp = str(choice[n-1])
-	fl= open("js_file"+ s + ".txt",'w+')
+	fl= open("js_file"+ s + ".js",'w+')
 	if temp[:7]=='http://' or temp[:8]=='https://' :
 			r=requests.get(choice[n-1])
 	else :

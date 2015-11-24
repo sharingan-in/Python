@@ -28,7 +28,7 @@ n=int(input("enter the serial number of the css file to save ,or \n press 0 to s
 if n==0 :
 	while i<=m :
 		s=str(i+1)
-		fl = open("css_file"+ s +".txt",'w+')
+		fl = open("css_file"+ s +".css",'w+')
 
 		temp = str(choice[i])
 		if temp[:7]=='http://' or temp[:8]=='https://' :
@@ -47,7 +47,7 @@ if n==0 :
 else :
 	s=str(n)
 	temp = str(choice[n-1])
-	fl= open("css_file"+ s + ".txt",'w+')
+	fl= open("css_file"+ s + ".css",'w+')
 	if temp[:7]=='http://' or temp[:8]=='https://' :
 			r=requests.get(choice[n-1])
 	else :
