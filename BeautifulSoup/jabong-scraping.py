@@ -34,7 +34,7 @@ for i in store.find_all('label') :
 	brand[brand_name]=num1
 fl.write(str(brand));
 i=0
-n =str(input("enter the product name or enter 0 for all"))
+n =str(input("enter the product name or enter 0 for all out of" + str(sum1)))
 if n=='0':
  	for value in brand :
  		print(value + " has total of \t"+ brand[value] +" products on jabong")
@@ -48,12 +48,14 @@ else :
 	print("\n " + n + " contributes to approximately " + k + " percentage of products on jabong")
 print("\n\n\n top 5 brands on jabong for current category are :")
 sorted_brand = sorted(brand.items(), key=operator.itemgetter(1))
+sorted_brand.reverse()
 i=0
 for value in sorted_brand :
-	price=value[i]
+	price=int(value[1])
 	price=int(price)
-	k=int(price*100/sum1)
-	print(value + " has total of " + sorted_brand[value] +" products on jabong whis is about " +k + "'%' of all products")
+	k=int((price*100/sum1)*10000)
+	k=k/10000
+	print(str(value[0]) + " has total of " + str(value[1]) +" products on jabong which is about " +str(k) + "percentage of all products")
 	i=i+1
 	if i>=5:
 		break
