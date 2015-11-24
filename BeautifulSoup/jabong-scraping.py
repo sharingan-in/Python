@@ -44,11 +44,12 @@ else :
 	print(n +" has total of " + brand[n] +" products")
 	price =brand[n]
 	price=int(price)
-	k=int(price*100/sum1)
-	print("\n " + n + " contributes to approximately " + k + " percentage of products on jabong")
+	k=int(price*100/sum1*10000)
+	k/=10000
+	print("\n " + n + " contributes to approximately " + str(k) + " percentage of products on jabong")
 print("\n\n\n top 5 brands on jabong for current category are :")
-sorted_brand = sorted(brand.items(), key=operator.itemgetter(1))
-sorted_brand.reverse()
+sorted_brand = sorted(brand.items(), key=lambda x: (-int(x[1]), x[0]))
+
 i=0
 for value in sorted_brand :
 	price=int(value[1])
