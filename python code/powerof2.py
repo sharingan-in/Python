@@ -1,4 +1,3 @@
-#program to check if the number is power of 2
 t=int(input())
 
 while t :
